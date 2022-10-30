@@ -16,4 +16,11 @@ List<Currency> CURRENCIES = [
   Currency(name: 'United State Dollar', code: 'USD')
 ];
 
-List<Plan> PLANS = [];
+List<Plan> PLANS = [
+  Plan(name: 'Bronze', imgUrl: 'assets/images/bronze.jpeg', price: 9000),
+  Plan(name: 'Silver', imgUrl: 'assets/images/silver.jpeg', price: 15000),
+  Plan(name: 'Gold', imgUrl: 'assets/images/gold.jpeg', price: 25000),
+  Plan(name: 'Silver', imgUrl: 'assets/images/silver.jpeg', price: 15000),
+  Plan(name: 'Gold', imgUrl: 'assets/images/gold.jpeg', price: 25000),
+  Plan(name: 'Bronze', imgUrl: 'assets/images/bronze.jpeg', price: 9000),
+];

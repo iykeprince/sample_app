@@ -18,7 +18,7 @@ class CurrencySwitcher extends StatefulWidget {
 }
 
 class _CurrencySwitcherState extends State<CurrencySwitcher> {
-  Currency? _selectedCurrency;
+  Currency? _selectedCurrency = CURRENCIES[0];
 
   @override
   Widget build(BuildContext context) {

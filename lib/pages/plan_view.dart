@@ -18,46 +18,44 @@ class _PlanViewState extends State<PlanView> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Row(
-              children: [
-                const Text(
-                  'Plans',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Row(
+            children: [
+              const Text(
+                'Plans',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
                 ),
-                Expanded(child: Container()),
-                InkWell(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.shopping_cart,
-                    color: kPrimaryColor,
-                    size: 24,
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                CurrencySwitcher(
-                  currencies: CURRENCIES,
-                  onCurrencySelected: _onCurrencySelected,
+              ),
+              Expanded(child: Container()),
+              InkWell(
+                onTap: () {},
+                child: const Icon(
+                  Icons.shopping_cart,
+                  color: kPrimaryColor,
+                  size: 24,
                 ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            const Expanded(
-              child: PlanList(),
-            ),
-          ],
-        ),
+              )
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              CurrencySwitcher(
+                currencies: CURRENCIES,
+                onCurrencySelected: _onCurrencySelected,
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          const Expanded(
+            child: PlanList(),
+          ),
+        ],
       ),
     );
   }

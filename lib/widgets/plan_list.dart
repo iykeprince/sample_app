@@ -12,9 +12,9 @@ class PlanList extends StatelessWidget {
     return ListView.builder(
       itemCount: 5,
       itemBuilder: (BuildContext context, int index) {
-        // Product product = PRODUCTS[index];
+        Plan plan = PLANS[index];
         return PlanListItem(
-          plan: Plan(imgUrl: '', name: '', price: 0.0),
+          plan: Plan(imgUrl: plan.imgUrl, name: plan.name, price: plan.price),
         );
       },
     );
@@ -44,21 +44,29 @@ class PlanListItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Bronze',
-            style: TextStyle(
+          Text(
+            plan.name,
+            style: const TextStyle(
               fontSize: 20,
             ),
           ),
           const SizedBox(height: 16),
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.network('https://via.placeholder.com/468x250'),
+            child: Image.asset(
+              plan.imgUrl,
+              errorBuilder: (context, error, stackTrace) {
+                return const Icon(
+                  Icons.no_backpack,
+                  size: 100,
+                );
+              },
+            ),
           ),
           const SizedBox(height: 20),
-          const Text(
-            'N 9000/month',
-            style: TextStyle(
+          Text(
+            '₦ ${plan.price.toInt()}/month',
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
