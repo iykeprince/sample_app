@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sample_app/pages/plan_view.dart';
-import 'package:sample_app/widgets/plan_list.dart';
-import 'package:sample_app/widgets/sample_button.dart';
 
 import 'constants.dart';
-import 'models/currency.model.dart';
-import 'models/plan.model.dart';
-import 'widgets/currency_switcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Sample App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -48,13 +44,13 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (index) {
       case 0:
       case 1:
-        return Center(child: Text('Hello'));
+        return Center(child: Text('N/A'));
       case 2:
         return PlanView();
       case 3:
       case 4:
       default:
-        return Center(child: Text('Hello'));
+        return Center(child: Text('N/A'));
     }
   }
 

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sample_app/app_size.dart';
 
 import '../constants.dart';
 import '../models/plan.model.dart';
+import '../utils.dart';
 import 'sample_button.dart';
 
 class PlanList extends StatelessWidget {
@@ -32,14 +34,14 @@ class PlanListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 16),
-      padding: const EdgeInsets.all(12.0),
+      margin: const EdgeInsets.only(bottom: AppSize.s16),
+      padding: const EdgeInsets.all(AppSize.s12),
       decoration: BoxDecoration(
         border: Border.all(
           width: 1,
           color: kPrimaryBorderColor,
         ),
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(AppSize.s12),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,25 +49,29 @@ class PlanListItem extends StatelessWidget {
           Text(
             plan.name,
             style: const TextStyle(
-              fontSize: 20,
-            ),
+                fontSize: AppSize.s30,
+                fontWeight: FontWeight.w800,
+                color: kDarkColor),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSize.s16),
           ClipRRect(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppSize.s12),
             child: Image.asset(
               plan.imgUrl,
               errorBuilder: (context, error, stackTrace) {
                 return const Icon(
                   Icons.no_backpack,
-                  size: 100,
+                  size: AppSize.s100,
                 );
               },
+              height: 150,
+              width: double.infinity,
+              fit: BoxFit.cover,
             ),
           ),
           const SizedBox(height: 20),
           Text(
-            '₦ ${plan.price.toInt()}/month',
+            '₦ ${formatPrice(plan.price)}/month',
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,
@@ -74,7 +80,11 @@ class PlanListItem extends StatelessWidget {
           const SizedBox(height: 20),
           const Text(
             'Up to 9 items',
-            style: TextStyle(fontSize: 16, letterSpacing: 2),
+            style: TextStyle(
+              fontSize: 16,
+              letterSpacing: 2,
+              color: kLightDarkColor,
+            ),
           ),
           const SizedBox(height: 20),
           Row(
@@ -83,6 +93,7 @@ class PlanListItem extends StatelessWidget {
                 'VIEW CONTENT',
                 style: TextStyle(
                   fontSize: 14,
+                  fontWeight: FontWeight.w500,
                   color: kPrimaryLightColor,
                   letterSpacing: 4,
                 ),

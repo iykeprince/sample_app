@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_app/app_size.dart';
 
 import '../constants.dart';
 import '../models/currency.model.dart';
@@ -23,7 +24,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(AppSize.s12),
       child: Container(
         decoration: const BoxDecoration(
           color: kPrimaryLightColor,
@@ -40,7 +41,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher> {
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0, vertical: 16.0),
+                    horizontal: AppSize.s16, vertical: AppSize.s16),
                 decoration: BoxDecoration(
                   color:
                       isCurrencySelected ? kPrimaryColor : kPrimaryLightColor,
@@ -48,7 +49,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher> {
                 child: Text(
                   currency.code,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: AppSize.s18,
                     color: isCurrencySelected ? Colors.white : Colors.black,
                   ),
                 ),

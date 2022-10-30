@@ -10,6 +10,8 @@ const Color kPrimaryDarkColor = Color(0xff252b25);
 const Color kPrimaryBorderColor = Color(0xffd2eaa6);
 const Color kLightColor = Color(0xffefeee4);
 const Color kWhiteColor = Color(0xffffffff);
+const Color kDarkColor = Color(0xff45444b);
+const Color kLightDarkColor = Color(0xff605f65);
 
 List<Currency> CURRENCIES = [
   Currency(name: 'Nigeria Naira', code: 'NGN'),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_app/app_size.dart';
 
 import '../constants.dart';
 import '../models/currency.model.dart';
@@ -17,7 +18,7 @@ class _PlanViewState extends State<PlanView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(AppSize.s8),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
@@ -26,7 +27,7 @@ class _PlanViewState extends State<PlanView> {
               const Text(
                 'Plans',
                 style: TextStyle(
-                  fontSize: 24.0,
+                  fontSize: AppSize.s24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -36,12 +37,12 @@ class _PlanViewState extends State<PlanView> {
                 child: const Icon(
                   Icons.shopping_cart,
                   color: kPrimaryColor,
-                  size: 24,
+                  size: AppSize.s24,
                 ),
               )
             ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: AppSize.s36),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -51,7 +52,7 @@ class _PlanViewState extends State<PlanView> {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: AppSize.s20),
           const Expanded(
             child: PlanList(),
           ),
