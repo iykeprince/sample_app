@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_app/pages/plan_view.dart';
 import 'package:sample_app/widgets/plan_list.dart';
 import 'package:sample_app/widgets/sample_button.dart';
 
@@ -22,15 +23,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Plans'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -38,7 +37,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _activeNav = 2;
-  Currency? _selectedCurrency;
 
   void _onSelectedNav(int value) {
     setState(() {
@@ -46,60 +44,25 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _onCurrencySelected(Currency? currency) {
-    setState(() {
-      _selectedCurrency = currency;
-    });
+  Widget getView(int index) {
+    switch (index) {
+      case 0:
+      case 1:
+        return Center(child: Text('Hello'));
+      case 2:
+        return PlanView();
+      case 3:
+      case 4:
+      default:
+        return Center(child: Text('Hello'));
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Row(
-                  children: [
-                    Text(
-                      widget.title,
-                      style: const TextStyle(
-                        fontSize: 24.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Expanded(child: Container()),
-                    InkWell(
-                      onTap: () {},
-                      child: const Icon(
-                        Icons.shopping_cart,
-                        color: kPrimaryColor,
-                        size: 24,
-                      ),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    CurrencySwitcher(
-                      currencies: CURRENCIES,
-                      onCurrencySelected: _onCurrencySelected,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
-                const Expanded(
-                  child: PlanList(),
-                ),
-              ],
-            ),
-          ),
-        ),
+        child: getView(_activeNav),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
